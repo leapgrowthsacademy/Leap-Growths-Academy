@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Growth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/programs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Momo+Signature&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/assets/images/full logo without bg.png" alt="Leap Growths" height="55rem">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="explore.html">Explore</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="programs-section">
+            <div class="programs-container">
+
+                <!-- HEADER -->
+                <div class="programs-header">
+                    <h2>Programs</h2>
+                    <p>
+                        Skill-based programs structured to develop emotional intelligence,
+                        discipline, and readiness for the real world.
+                    </p>
+                </div>
+
+                <!-- PROGRAM CARDS -->
+                <div class="programs-grid">
+
+                    <!-- CARD 1 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <img src="assets/images/9.png" alt="Pilot Session">
+                        </div>
+                        <h3>Pilot Session</h3>
+                        <span class="duration">1.5 Hours</span>
+
+                        <ul>
+                            <li>Boost Self-Awareness & Focus</li>
+                            <li>Understand Emotional Psychology</li>
+                        </ul>
+
+                        <button class="btn btn-primary enquire-btn" data-program="Pilot Session"
+                            data-source="Programs Page">
+                            Register Now
+                        </button>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <img src="assets/images/10.png" alt="Orientation Program">
+                        </div>
+                        <h3>Orientation Program</h3>
+                        <span class="duration">1 Day</span>
+
+                        <ul>
+                            <li>Understand Applied Inner Psychology</li>
+                            <li>Gain Clarity & Motivation to Grow</li>
+                        </ul>
+
+                        <button class="btn btn-primary enquire-btn" data-program="Orientation Program"
+                            data-source="Programs Page">
+                            Register Now
+                        </button>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <img src="assets/images/11.png" alt="Advanced Program">
+                        </div>
+                        <h3>Advanced Program</h3>
+                        <span class="duration">3–4 Months</span>
+
+                        <ul>
+                            <li>Master Emotional Regulation</li>
+                            <li>Develop Long-Term Behavioural Skills</li>
+                        </ul>
+
+                        <button class="btn btn-primary enquire-btn" data-program="Advanced Program"
+                            data-source="Programs Page">
+                            Register Now
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- BOTTOM CTA -->
+                <div class="programs-footer">
+                    <h4>Which program is right for you?</h4>
+                    <p>
+                        For a Details <br><br><button class="btn btn-primary btn-lg" id="openOrientation">
+                            Book a Free Orientation
+                        </button>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="events-section">
+            <div class="events-container">
+
+                <!-- HEADER -->
+                <div class="events-header">
+                    <h2>Upcoming Online Events</h2>
+                    <p>
+                        Join our live online sessions designed to build awareness,
+                        emotional strength, and real-world clarity.
+                    </p>
+                </div>
+
+                <!-- EVENT CARDS -->
+                <div class="events-list">
+
+                    <!-- EVENT 1 -->
+                    <div class="event-card">
+                        <div class="event-flyer">
+                            <img src="assets/images/flyer template.png" alt="Emotional Intelligence Webinar">
+                        </div>
+
+                        <div class="event-content">
+                            <h3>Emotional Intelligence for Students</h3>
+                            <span class="event-meta">📅 Feb 18, 2026 | ⏰ 7:00 PM IST</span>
+
+                            <p>
+                                Learn how emotional intelligence impacts focus, decision-making,
+                                and academic confidence in real life.
+                            </p>
+
+                            <button class="btn btn-primary" onclick="openEventModal('Building Discipline & Focus')">
+                                Register Now
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- EVENT 2 -->
+                    <div class="event-card">
+                        <div class="event-flyer">
+                            <img src="assets/images/flyer template.png" alt="Career Clarity Session">
+                        </div>
+
+                        <div class="event-content">
+                            <h3>Career Clarity & Inner Motivation</h3>
+                            <span class="event-meta">📅 Feb 25, 2026 | ⏰ 6:30 PM IST</span>
+
+                            <p>
+                                A guided online session to help students overcome confusion,
+                                pressure, and lack of direction.
+                            </p>
+
+                            <button class="btn btn-primary" onclick="openEventModal('Building Discipline & Focus')">
+                                Register Now
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- EVENT 3 -->
+                    <div class="event-card">
+                        <div class="event-flyer">
+                            <img src="assets/images/flyer template.png" alt="Discipline Workshop">
+                        </div>
+
+                        <div class="event-content">
+                            <h3>Building Discipline & Focus</h3>
+                            <span class="event-meta">📅 Mar 02, 2026 | ⏰ 7:30 PM IST</span>
+
+                            <p>
+                                Practical techniques to develop self-discipline, consistency,
+                                and long-term personal growth.
+                            </p>
+
+                            <button class="btn btn-primary" onclick="openEventModal('Building Discipline & Focus')">
+                                Register Now
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="footer-content">
+
+            <div class="footer-left">
+                <img src="assets/images/full logo without bg.png" alt="Leap Growths Logo" class="footer-logo">
+            </div>
+
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="explore.html">Explore</a>
+            </nav>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 LEAP Growths Academy. All rights reserved.
+        </div>
+    </footer>
+
+
+    <!-- ===== PROGRAM ENQUIRY MODAL ===== -->
+    <div class="modal fade" id="programEnquiryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Program Enquiry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="programEnquiryForm">
+
+                        <!-- SOURCE (Landing / Programs Page) -->
+                        <input type="hidden" name="source" id="formSource">
+
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" required pattern="[0-9]{10}"
+                                maxlength="10" inputmode="numeric">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Which Program?</label>
+                            <div class="d-flex flex-column gap-2">
+                                <label>
+                                    <input type="radio" name="program" value="Pilot Session" required>
+                                    Pilot Session
+                                </label>
+                                <label>
+                                    <input type="radio" name="program" value="Orientation Program">
+                                    Orientation Program
+                                </label>
+                                <label>
+                                    <input type="radio" name="program" value="Advanced Program">
+                                    Advanced Program
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Message (optional)</label>
+                            <textarea name="message" class="form-control" rows="3"
+                                placeholder="Tell us what you're looking for..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning w-100 fw-semibold">
+                            Submit Enquiry
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="orientationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Book a Free Orientation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- ORIENTATION FORM -->
+                    <form id="orientationForm">
+
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Who are you?</label>
+                            <div class="d-flex gap-3">
+                                <label><input type="radio" name="role" value="Student" required> Student</label>
+                                <label><input type="radio" name="role" value="Professional"> Professional</label>
+                                <label><input type="radio" name="role" value="Institution"> Institution</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required
+                                pattern="[0-9]{10}" maxlength="10" inputmode="numeric" />
+
+                        </div>
+
+                        <input type="hidden" name="source" value="Program Page">
+
+
+                        <button type="submit" class="btn btn-warning w-100 fw-semibold">
+                            Proceed
+                        </button>
+
+                        <p class="text-center text-muted mt-2" style="font-size: 13px;">
+                            No spam. Only meaningful learning updates.
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+
+
+    <!-- EVENT REGISTRATION MODAL -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Register for Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="eventForm">
+
+                        <!-- NAME -->
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required
+                                minlength="3" maxlength="40">
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+
+                        <!-- PHONE -->
+                        <div class="mb-3">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required
+                                maxlength="10" pattern="[0-9]{10}" inputmode="numeric"
+                                title="Enter a valid 10-digit phone number">
+                        </div>
+
+                        <!-- Hidden Fields -->
+                        <input type="hidden" name="event" id="eventName">
+                        <input type="hidden" name="source" value="Upcoming Online Events">
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Register Now
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwQW-QWTUm8gQKo9LIng-Tnx5oP0pav1aLe8nd7tK2G9VDNRVsgUsCyZQjdvLi6HMZY/exec";
+        const eventModal = new bootstrap.Modal(
+            document.getElementById("eventModal")
+        );
+
+        function openEventModal(eventName) {
+            document.getElementById("eventName").value = eventName;
+            eventModal.show();
+        }
+
+        document.getElementById("eventForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            const payload = {
+                name: formData.get("name"),
+                email: formData.get("email"),
+                phone: formData.get("phone"),
+                event: formData.get("event"),
+                source: formData.get("source")
+            };
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: JSON.stringify(payload)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        alert("Registration successful 🎉");
+                        eventModal.hide();
+                        document.getElementById("eventForm").reset();
+                    } else {
+                        alert("Submission failed");
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Network error");
+                });
+        });
+    </script>
+</body>
+
+</html>

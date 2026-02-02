@@ -1,0 +1,204 @@
+body {
+    margin: 0;
+    background-image: url('/assets/images/mini\ background\ 2.png');
+}
+
+/* ---------- ABOUT SECTION ---------- */
+.about-section {
+
+    padding: 90px 6%;
+}
+
+.about-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* CONTENT */
+.about-content {
+    padding: 60px;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.about-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-content li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.about-content li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #f4c430;
+    font-weight: bold;
+}
+
+.about-highlight {
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+/* IMAGE */
+.about-image {
+    background: url("/assets/images/about.png") center/cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    min-height: 100%;
+}
+
+@media (max-width: 768px) {
+    .about-card {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        order: 1;
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    .about-image {
+        order: 1;
+        height: 400px;
+        background-size: cover;
+        background-position: right;
+    }
+}
+
+/* Background image container */
+
+/* ---------- CTA SECTION ---------- */
+.cta-section {
+
+    padding: 90px 6%;
+}
+
+.cta-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* CONTENT */
+.cta-content {
+    padding: 60px;
+}
+
+.cta-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    background: #f3f9fc;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* FORM */
+.cta-form {
+    background: #f7fbfd;
+    padding: 40px;
+}
+
+.cta-form h5 {
+    background-color: #2b6f82;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.cta-form h3 {
+    margin-bottom: 20px;
+}
+
+.cta-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.cta-form button {
+    width: 100%;
+    background: #f4c430;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cta-form small {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+
+    .cta-card {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content {
+        order: 1;
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    .cta-form {
+        order: 2;
+        padding: 30px 25px;
+    }
+
+}
