@@ -74,14 +74,22 @@ body {
 .hero-section {
     background: linear-gradient(135deg, #12819C 30%, #12819C 70%);
     padding: 80px 0;
-    min-height: 600px;
+    min-height: max-content;
     display: flex;
     align-items: center;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
-
+.corner-img {
+    position: absolute;
+    rotate: -25deg;
+    top: 60%;
+    right: -70%;
+    width: 30%;
+    height: auto;
+    overflow: hidden;
+}
 
 .hero-section .container-fluid {
     padding-left: 40px;
@@ -96,9 +104,8 @@ body {
 
 .hero-subtitle {
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: -20%;
-    opacity: 0.9;
     width: 100%;
 }
 
@@ -139,7 +146,7 @@ body {
 .hero-overlay-text {
     position: relative;
     height: 140px;
-    margin: 30px 0;
+    margin: 0 0 60px 0;
     width: fit-content;
     margin-left: 40%;
 }
@@ -161,17 +168,17 @@ body {
 }
 
 .line-2 {
-    top: 35px;
-    font-size: 4rem;
-    color: #000;
+    top: 50px;
+    font-size: 5.3rem;
+    color: #f4c430;
     z-index: 10;
-    font-family: 'Momo Signature', 'Georgia', 'Garamond', serif;
+    font-family: 'Allura', cursive;
 }
 
 .line-3 {
-    top: 80px;
+    top: 110px;
     font-size: 3.5rem;
-    color: #fff;
+    color: #000000;
 }
 
 /* Responsive Design - Mobile */
@@ -197,6 +204,8 @@ body {
     }
 
     .hero-image img {
+        position: relative;
+        z-index: 2;
         max-width: 90%;
         height: auto;
         display: flex;
@@ -207,6 +216,17 @@ body {
         margin-top: 1rem;
         justify-content: center;
         text-align: center;
+    }
+
+    .corner-img {
+        position: absolute;
+        z-index: 1;
+        rotate: -25deg;
+        top: 60%;
+        right: -70%;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
     }
 }
 
@@ -236,6 +256,40 @@ body {
         width: 130%;
     }
 
+    .hero-left {
+        position: relative;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* horizontal center */
+        text-align: center;
+        z-index: 2;
+    }
+
+    .hero-left .btn {
+        width: max-content;
+        margin-left: 28%;
+    }
+
+
+    .hero-left h6 {
+        width: max-content;
+        margin-left: 28%;
+    }
+
+    /* Optional spacing */
+    .hero-overlay-text {
+        margin-bottom: 3rem;
+    }
+
+    #heroButtonContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 25%;
+    }
 }
 
 @media (min-width:768px) and (max-width:1024px) {
@@ -400,7 +454,7 @@ body {
 
 /* ---------- FOOTER STRIP ---------- */
 .gap-footer {
-    background: #2b6f82;
+    background: #12819C;
     color: #ffffff;
     text-align: left;
     padding: 20px;
