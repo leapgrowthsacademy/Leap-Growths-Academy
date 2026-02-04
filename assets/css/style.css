@@ -110,6 +110,7 @@ body {
 }
 
 .hero-text .btn {
+    position: relative;
     background-color: #e6f603;
     color: #000000;
     font-weight: 600;
@@ -119,6 +120,7 @@ body {
     transition: all 0.3s ease;
     margin-top: 6%;
     margin-left: 20%;
+    z-index: 10;
 }
 
 .hero-text .btn:hover {
@@ -528,7 +530,7 @@ body {
     background: #ffffff;
     border-radius: 18px;
     padding: 25px;
-    width: 240px;
+    width: max-content;
     height: 240px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
@@ -544,6 +546,22 @@ body {
     justify-content: center;
     margin: 0 auto 15px;
     font-size: 24px;
+}
+
+#aip-card-1 {
+    background: #1C7BB3;
+}
+
+#aip-card-2 {
+    background: #6CA564;
+}
+
+#aip-card-3 {
+    background: #EC8B23;
+}
+
+#aip-card-4 {
+    background: #744A94;
 }
 
 .icon-circle.yellow {
@@ -670,7 +688,7 @@ body {
 
 /* LOGO */
 .footer-logo {
-    max-width: 160px;
+    max-width: 250px;
 }
 
 /* NAV LINKS */
