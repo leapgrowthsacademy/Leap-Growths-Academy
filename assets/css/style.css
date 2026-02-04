@@ -602,6 +602,11 @@ body {
     background: #f9fcfe;
 }
 
+.why-left a {
+    text-decoration: none;
+    color: #1c3d4f;
+}
+
 .why-left h2 {
     font-size: 32px;
     margin-bottom: 20px;
