@@ -79,6 +79,8 @@ body {
     align-items: center;
     margin-bottom: 0;
     padding-bottom: 0;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .corner-img {
