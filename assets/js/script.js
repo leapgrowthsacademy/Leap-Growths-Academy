@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const orientationFormsFooter = document.querySelectorAll(".footerOrientationForm");
 
     const orientationScriptURL =
-        "https://script.google.com/macros/s/AKfycbw02WPoK8OCx3QOGlzlDpwP81DwJS-6lyzAeCwMQEeBJE5Lpj3rJsjDcbx1jSTejpzi_g/exec";
+        "https://script.google.com/macros/s/AKfycbyso7H82QU5RV_R976UUdvibUSswjZKfh3TslytVkk8Vr-SugUkzr8_FF63MrSUm3zamg/exec";
 
     function handleOrientationSubmit(form) {
         form.addEventListener("submit", e => {
