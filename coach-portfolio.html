@@ -465,51 +465,67 @@
     <div class="section-label">What People Say</div>
     <div class="section-title">Early <em>transformations</em></div>
     <div class="section-sub">These are placeholder testimonials — replace with real quotes as you collect them from your first sessions and programs.</div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"This workshop came into my life at the right time, when I was struggling to manage my emotions. It helped me reconnect with myself, understand my feelings better, and shift from reacting impulsively to responding thoughtfully to situations."</div>
-        <div class="testi-author">
-          <div class="testi-dot">A</div>
-          <div>
-            <div class="testi-name">Ajay</div>
-            <div class="testi-role">Software Engineer · Age-27</div>
+    <div class="testi-carousel">
+      <div class="testi-viewport" id="testiViewport" role="region" aria-roledescription="carousel" aria-label="Client testimonials">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"This workshop came into my life at the right time, when I was struggling to manage my emotions. It helped me reconnect with myself, understand my feelings better, and shift from reacting impulsively to responding thoughtfully to situations."</div>
+              <div class="testi-author">
+                <div class="testi-dot">A</div>
+                <div>
+                  <div class="testi-name">Ajay</div>
+                  <div class="testi-role">Software Engineer · Age-27</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"It was a great and awesome session. I gained a lot of knowledge. Nikhil explained everything very well with beautiful examples and a lot of patience. I really loved the way he explained each concept in such a practical and easy-to-understand manner.
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"It was a great and awesome session. I gained a lot of knowledge. Nikhil explained everything very well with beautiful examples and a lot of patience. I really loved the way he explained each concept in such a practical and easy-to-understand manner.
 It helped me in my life's situations to handle better."</div>
-        <div class="testi-author">
-          <div class="testi-dot">S</div>
-          <div>
-            <div class="testi-name">Sowmya Deekshita</div>
-            <div class="testi-role">Fashion Designer · Age-22</div>
+              <div class="testi-author">
+                <div class="testi-dot">S</div>
+                <div>
+                  <div class="testi-name">Sowmya Deekshita</div>
+                  <div class="testi-role">Fashion Designer · Age-22</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"This workshop helped me understand my subconscious mind better and improved my emotional awareness. The sessions were deep, relatable, and practical. I now handle my thoughts, emotions, and relationships with more clarity and confidence."</div>
+              <div class="testi-author">
+                <div class="testi-dot">A</div>
+                <div>
+                  <div class="testi-name">Ashwik</div>
+                  <div class="testi-role">Final year Student · Age-22</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"I attended the session last year while I was going through a rough patch emotionally. The session really helped me understand myself better. I started responding to situations rather than reacting. Eventually, it also helped my career by helping me understand people and their point of view, which made work more smoother & enjoyable."</div>
+              <div class="testi-author">
+                <div class="testi-dot">Y</div>
+                <div>
+                  <div class="testi-name">Yamini Manasa</div>
+                  <div class="testi-role">Marketing professional · Age-25</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"This workshop helped me understand my subconscious mind better and improved my emotional awareness. The sessions were deep, relatable, and practical. I now handle my thoughts, emotions, and relationships with more clarity and confidence."</div>
-        <div class="testi-author">
-          <div class="testi-dot">A</div>
-          <div>
-            <div class="testi-name">Ashwik</div>
-            <div class="testi-role">Final year Student · Age-22</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"I attended the session last year while I was going through a rough patch emotionally. The session really helped me understand myself better. I started responding to situations rather than reacting. Eventually, it also helped my career by helping me understand people and their point of view, which made work more smoother & enjoyable."</div>
-        <div class="testi-author">
-          <div class="testi-dot">Y</div>
-          <div>
-            <div class="testi-name">Yamini Manasa</div>
-            <div class="testi-role">Marketing professional · Age-25</div>
-          </div>
-        </div>
+      <div class="testi-nav">
+        <button type="button" class="testi-btn testi-prev" id="testiPrev" aria-label="Previous testimonials"><span class="testi-btn-icon" aria-hidden="true">‹</span></button>
+        <button type="button" class="testi-btn testi-next" id="testiNext" aria-label="Next testimonials"><span class="testi-btn-icon" aria-hidden="true">›</span></button>
       </div>
     </div>
     <!-- <div class="testi-note">⚠ Testimonials above are illustrative placeholders. Replace with real client feedback as you collect it from your first sessions.</div> -->
@@ -583,11 +599,70 @@ document.querySelectorAll('.exp-card, .prog-card, .leap-card, .testi-card, .jw-i
 });
 
 // Stagger children
-document.querySelectorAll('.exp-grid, .prog-grid, .leap-grid, .testi-grid').forEach(grid => {
+document.querySelectorAll('.exp-grid, .prog-grid, .leap-grid, .testi-track').forEach(grid => {
   Array.from(grid.children).forEach((child, i) => {
     child.style.transitionDelay = `${i * 0.1}s`;
   });
 });
+
+// Testimonials carousel: 3 visible on wide viewports, fewer on small screens
+(function () {
+  const viewport = document.getElementById('testiViewport');
+  const track = document.getElementById('testiTrack');
+  const prev = document.getElementById('testiPrev');
+  const next = document.getElementById('testiNext');
+  if (!viewport || !track || !prev || !next) return;
+
+  const slides = track.querySelectorAll('.testi-slide');
+  const gap = 24;
+  let index = 0;
+  let visibleCount = 3;
+  let maxIndex = 0;
+
+  function getVisibleCount(width) {
+    if (width < 640) return 1;
+    if (width < 1024) return 2;
+    return 3;
+  }
+
+  function layout() {
+    const w = viewport.offsetWidth;
+    visibleCount = getVisibleCount(w);
+    const slideW = (w - gap * (visibleCount - 1)) / visibleCount;
+    slides.forEach(function (s) {
+      s.style.flexBasis = slideW + 'px';
+      s.style.maxWidth = slideW + 'px';
+    });
+    maxIndex = Math.max(0, slides.length - visibleCount);
+    if (index > maxIndex) index = maxIndex;
+    sync();
+  }
+
+  function sync() {
+    const w = viewport.offsetWidth;
+    const slideW = (w - gap * (visibleCount - 1)) / visibleCount;
+    const step = slideW + gap;
+    track.style.transform = 'translateX(' + (-index * step) + 'px)';
+    prev.disabled = index <= 0;
+    next.disabled = index >= maxIndex;
+  }
+
+  prev.addEventListener('click', function () {
+    if (index > 0) {
+      index -= 1;
+      sync();
+    }
+  });
+  next.addEventListener('click', function () {
+    if (index < maxIndex) {
+      index += 1;
+      sync();
+    }
+  });
+
+  new ResizeObserver(layout).observe(viewport);
+  layout();
+})();
 </script>
 
 </body>
