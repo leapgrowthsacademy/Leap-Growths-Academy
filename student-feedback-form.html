@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Well-being Questionnaire | Leap Growths Academy</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-50:  #e6f7f5;
+    --teal-100: #b3e8e1;
+    --teal-200: #80d9cd;
+    --teal-300: #4dcab9;
+    --teal-400: #26bfad;
+    --teal-500: #00b4a0;
+    --teal-600: #009e8c;
+    --teal-700: #008577;
+    --teal-800: #006b5f;
+    --teal-900: #004d44;
+    --blue-400: #2898c8;
+    --blue-500: #1a86b8;
+    --navy:     #0a2e35;
+    --ink:      #0d3d47;
+    --muted:    #5a8a91;
+    --faint:    #c8e8e5;
+    --bg:       #f0faf9;
+    --white:    #ffffff;
+    --warn-bg:  #fff8e6;
+    --warn:     #c07800;
+    --err-bg:   #fef0f0;
+    --err:      #c03030;
+    --ok-bg:    #eafaf6;
+    --ok:       #007a60;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Background decoration ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 10% 10%, rgba(0,180,160,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 90% 80%, rgba(40,152,200,0.09) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Layout ── */
+  .page { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── Brand header ── */
+  .brand-header {
+    text-align: center;
+    padding: 28px 20px 0;
+  }
+  .brand-header a {
+    display: inline-block;
+    text-decoration: none;
+  }
+  .brand-header img {
+    height: 56px;
+    width: auto;
+    max-width: min(280px, 85vw);
+    object-fit: contain;
+  }
+
+  /* ── Student info ── */
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--faint);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 28px;
+  }
+  .info-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .info-card > p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .info-field { display: flex; flex-direction: column; gap: 6px; }
+  .info-field.full { grid-column: 1 / -1; }
+  .info-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal-700);
+    letter-spacing: 0.03em;
+  }
+  .info-field label .req { color: var(--err); }
+  .info-field input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--faint);
+    border-radius: 12px;
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .info-field input:focus {
+    border-color: var(--teal-400);
+    background: var(--white);
+  }
+  .info-field input::placeholder { color: var(--muted); }
+  .info-field input.invalid { border-color: var(--err); background: var(--err-bg); }
+
+  /* ── Hero header ── */
+  .hero {
+    text-align: center;
+    padding: 56px 20px 40px;
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--teal-50); border: 1px solid var(--teal-200);
+    color: var(--teal-700); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal-500); }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 6vw, 48px);
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal-600); }
+  .hero p {
+    font-size: 16px; color: var(--muted); line-height: 1.7;
+    max-width: 520px; margin: 0 auto 28px;
+  }
+  .hero-meta {
+    display: inline-flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+  }
+  .meta-chip {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--muted);
+  }
+  .meta-chip svg { opacity: 0.7; }
+
+  /* ── Progress ── */
+  .progress-wrap { margin-bottom: 36px; }
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-label { font-size: 13px; font-weight: 500; color: var(--teal-700); }
+  .progress-frac { font-size: 13px; color: var(--muted); }
+  .progress-track {
+    height: 6px; background: var(--teal-100); border-radius: 100px; overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--teal-500), var(--blue-400));
+    border-radius: 100px;
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin: 40px 0 16px;
+  }
+  .section-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .section-info h2 { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .section-info p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .section-line { flex: 1; height: 1px; background: var(--teal-100); }
+
+  /* Section color themes */
+  .s-anxiety  .section-icon { background: #fff3cd; } 
+  .s-burnout   .section-icon { background: #fde8d8; }
+  .s-stress    .section-icon { background: #e8d8fd; }
+  .s-think     .section-icon { background: #d8edfd; }
+  .s-depression .section-icon { background: #dde8ff; }
+  .s-lonely    .section-icon { background: #fdd8e8; }
+  .s-approval  .section-icon { background: #fdecd8; }
+  .s-clarity   .section-icon { background: #d8fded; }
+  .s-meditate  .section-icon { background: #d8f8fd; }
+
+  /* ── Question card ── */
+  .q-card {
+    background: var(--white);
+    border: 1px solid var(--faint);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .q-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--teal-200);
+    transition: background 0.2s;
+  }
+  .q-card.answered::before { background: var(--teal-500); }
+  .q-card:hover { border-color: var(--teal-300); box-shadow: 0 2px 12px rgba(0,180,160,0.08); }
+
+  .q-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .q-num {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--teal-600); text-transform: uppercase;
+  }
+  .q-badge {
+    font-size: 10px; font-weight: 500; padding: 2px 8px;
+    border-radius: 100px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  .q-text { font-size: 15px; line-height: 1.65; color: var(--ink); margin-bottom: 16px; }
+
+  /* ── Scale buttons ── */
+  .scale-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .scale-ends { display: flex; justify-content: space-between; }
+  .scale-end { font-size: 11px; color: var(--muted); }
+  .scale-row { display: flex; gap: 6px; }
+  .s-btn {
+    flex: 1; padding: 10px 4px; border-radius: 10px;
+    border: 1.5px solid var(--faint);
+    background: var(--bg);
+    font-size: 13px; font-weight: 500;
+    color: var(--muted); cursor: pointer;
+    transition: all 0.15s;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .s-btn:hover { border-color: var(--teal-300); color: var(--teal-700); background: var(--teal-50); }
+  .s-btn.active {
+    border-color: var(--teal-500);
+    background: var(--teal-500);
+    color: var(--white);
+  }
+  .s-btn .s-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: currentColor; opacity: 0.5;
+  }
+
+  /* ── Pill options ── */
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    padding: 8px 16px; border-radius: 100px;
+    border: 1.5px solid var(--faint);
+    background: var(--bg);
+    font-size: 13px; color: var(--muted);
+    cursor: pointer; transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .pill:hover { border-color: var(--teal-400); color: var(--teal-700); background: var(--teal-50); }
+  .pill.active {
+    border-color: var(--teal-500); background: var(--teal-50);
+    color: var(--teal-700); font-weight: 500;
+  }
+
+  /* ── Textarea ── */
+  .open-input {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--faint); border-radius: 12px;
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--ink);
+    line-height: 1.6; resize: vertical; min-height: 80px;
+    transition: border-color 0.15s;
+    outline: none;
+  }
+  .open-input:focus { border-color: var(--teal-400); background: var(--white); }
+  .open-input::placeholder { color: var(--muted); }
+
+  /* ── Submit area ── */
+  .submit-area { margin-top: 48px; text-align: center; }
+  .submit-note { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .submit-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 40px; border-radius: 100px;
+    background: linear-gradient(135deg, var(--teal-500), var(--blue-500));
+    color: var(--white); font-family: 'DM Sans', sans-serif;
+    font-size: 16px; font-weight: 600; border: none; cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(0,180,160,0.35);
+    letter-spacing: 0.01em;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,180,160,0.45); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .submit-btn svg { transition: transform 0.2s; }
+  .submit-btn:hover svg { transform: translateX(4px); }
+
+  /* ── Thank you ── */
+  .thank-you {
+    display: none;
+    text-align: center;
+    padding: 48px 20px 80px;
+    animation: fadeUp 0.5s ease;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+  .thank-you-card {
+    background: var(--white);
+    border: 1px solid var(--faint);
+    border-radius: 20px;
+    padding: 48px 32px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .thank-you-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--ok-bg);
+    color: var(--ok);
+    font-size: 32px;
+    line-height: 64px;
+    font-weight: 600;
+  }
+  .thank-you-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 34px);
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .thank-you-card p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── Section badges ── */
+  .badge-anxiety    { background: #fff8e1; color: #9a6c00; }
+  .badge-burnout    { background: #feeee6; color: #9a3d00; }
+  .badge-stress     { background: #f0e8ff; color: #5e2fa0; }
+  .badge-thinking   { background: #e4f2ff; color: #1a5c9a; }
+  .badge-depression { background: #e8eeff; color: #2a3f9a; }
+  .badge-loneliness { background: #ffe8f2; color: #9a1a4e; }
+  .badge-approval   { background: #fff0e6; color: #8a4000; }
+  .badge-clarity    { background: #e6fff5; color: #006b4a; }
+  .badge-meditation { background: #e6fafa; color: #006b7a; }
+
+  /* ── Responsive ── */
+  @media (max-width: 520px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .scores-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .score-val { font-size: 20px; }
+    .q-card { padding: 16px; }
+    .s-btn { padding: 8px 2px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Company logo ── -->
+  <header class="brand-header">
+    <a href="index.html" aria-label="Leap Growths Academy home">
+      <img src="assets/images/full logo without bg.png" alt="Leap Growths Academy">
+    </a>
+  </header>
+
+  <!-- ── Hero ── -->
+  <header class="hero" id="page-hero">
+    <div class="hero-eyebrow">Student Well-being Check-in</div>
+    <h1>Where you stand,<br><em>today..?</em></h1>
+    <p>A safe, honest space to reflect on what you're going through — anxiety, burnout, clarity, meditation and more. No judgment. No grades.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,12"/></svg>
+        ~8 minutes
+      </span>
+      <span class="meta-chip">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Confidential
+      </span>
+      <span class="meta-chip">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        40 questions
+      </span>
+    </div>
+  </header>
+
+  <!-- ── Form ── -->
+  <form id="questionnaire-form" novalidate>
+  <div id="form-area">
+    <!-- Student details -->
+    <div class="info-card" id="student-info">
+      <h3>Your details</h3>
+      <p>Please share a few details so we can link your responses. All fields marked with * are required.</p>
+      <div class="info-grid">
+        <div class="info-field">
+          <label for="student-name">Full name <span class="req">*</span></label>
+          <input type="text" id="student-name" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="info-field">
+          <label for="student-email">Email <span class="req">*</span></label>
+          <input type="email" id="student-email" name="email" placeholder="you@email.com" required autocomplete="email">
+        </div>
+        <div class="info-field">
+          <label for="student-phone">Phone (optional)</label>
+          <input type="tel" id="student-phone" name="phone" placeholder="10-digit mobile" maxlength="10" pattern="[0-9]{10}" inputmode="numeric">
+        </div>
+        <div class="info-field">
+          <label for="student-institution">College / Institution (optional)</label>
+          <input type="text" id="student-institution" name="institution" placeholder="Where you study" autocomplete="organization">
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span class="progress-label">Your progress</span>
+        <span class="progress-frac" id="prog-frac">0 / 40</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="prog-bar"></div></div>
+    </div>
+
+    <!-- ─ SECTION 1: ANXIETY ─ -->
+    <div class="section-label s-anxiety">
+      <div class="section-icon">😰</div>
+      <div class="section-info">
+        <h2>Anxiety</h2>
+        <p>Worry, fear, and physical tension</p>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q1" data-section="anxiety">
+      <div class="q-meta"><span class="q-num">Q1</span><span class="q-badge badge-anxiety">Anxiety</span></div>
+      <div class="q-text">How often do you feel a persistent sense of worry or dread — even when nothing specific is wrong?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Never</span><span class="scale-end">Almost always</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q2" data-section="anxiety">
+      <div class="q-meta"><span class="q-num">Q2</span><span class="q-badge badge-anxiety">Anxiety</span></div>
+      <div class="q-text">Do you experience physical symptoms of anxiety — racing heart, tight chest, difficulty breathing — before exams or social situations?</div>
+      <div class="pills" data-type="pills" data-opts="Never|Rarely|Sometimes|Often|Almost always"></div>
+    </div>
+
+    <div class="q-card" data-q="q3" data-section="anxiety">
+      <div class="q-meta"><span class="q-num">Q3</span><span class="q-badge badge-anxiety">Anxiety</span></div>
+      <div class="q-text">How much does anxiety get in the way of you doing things you want to do (attending class, speaking up, socialising)?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Not at all</span><span class="scale-end">Constantly blocks me</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q4" data-section="anxiety">
+      <div class="q-meta"><span class="q-num">Q4</span><span class="q-badge badge-anxiety">Anxiety</span></div>
+      <div class="q-text">When anxious thoughts arrive, what do you usually do?</div>
+      <div class="pills" data-type="pills" data-opts="Push them away|Distract myself|Breathe and observe|Talk to someone|Let them spiral|I don't know"></div>
+    </div>
+
+    <!-- ─ SECTION 2: BURNOUT ─ -->
+    <div class="section-label s-burnout">
+      <div class="section-icon">🔋</div>
+      <div class="section-info"><h2>Burnout</h2><p>Exhaustion, emptiness, and loss of motivation</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q5" data-section="burnout">
+      <div class="q-meta"><span class="q-num">Q5</span><span class="q-badge badge-burnout">Burnout</span></div>
+      <div class="q-text">How often do you wake up feeling tired, even after a full night's sleep?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Every day</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q6" data-section="burnout">
+      <div class="q-meta"><span class="q-num">Q6</span><span class="q-badge badge-burnout">Burnout</span></div>
+      <div class="q-text">Do you still find meaning or interest in your studies / work, or does it feel like going through the motions?</div>
+      <div class="pills" data-type="pills" data-opts="Still find meaning|Some interest left|Mostly going through motions|Completely empty"></div>
+    </div>
+
+    <div class="q-card" data-q="q7" data-section="burnout">
+      <div class="q-meta"><span class="q-num">Q7</span><span class="q-badge badge-burnout">Burnout</span></div>
+      <div class="q-text">How often do you feel you have nothing left to give — emotionally or mentally — by the end of the day?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Every single day</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q8" data-section="burnout">
+      <div class="q-meta"><span class="q-num">Q8</span><span class="q-badge badge-burnout">Burnout</span></div>
+      <div class="q-text">Have you lost interest in hobbies or activities that used to energise you?</div>
+      <div class="pills" data-type="pills" data-opts="No, still enjoy them|A little less|Mostly lost interest|Completely lost interest"></div>
+    </div>
+
+    <!-- ─ SECTION 3: STRESS ─ -->
+    <div class="section-label s-stress">
+      <div class="section-icon">⚡</div>
+      <div class="section-info"><h2>Stress</h2><p>Pressure, overload, and coping</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q9" data-section="stress">
+      <div class="q-meta"><span class="q-num">Q9</span><span class="q-badge badge-stress">Stress</span></div>
+      <div class="q-text">How would you rate your current overall stress level?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Very low</span><span class="scale-end">Extremely high</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q10" data-section="stress">
+      <div class="q-meta"><span class="q-num">Q10</span><span class="q-badge badge-stress">Stress</span></div>
+      <div class="q-text">Does stress from one area (exams, family, finances) tend to spill over and affect your whole life?</div>
+      <div class="pills" data-type="pills" data-opts="Rarely spills over|Sometimes|Often|It takes over everything"></div>
+    </div>
+
+    <div class="q-card" data-q="q11" data-section="stress">
+      <div class="q-meta"><span class="q-num">Q11</span><span class="q-badge badge-stress">Stress</span></div>
+      <div class="q-text">What are your main sources of stress right now? (choose all that apply)</div>
+      <div class="pills" data-type="pills" data-multi="true" data-opts="Academic pressure|Financial worry|Family expectations|Relationships|Future uncertainty|Social media|Health|Everything at once"></div>
+    </div>
+
+    <div class="q-card" data-q="q12" data-section="stress">
+      <div class="q-meta"><span class="q-num">Q12</span><span class="q-badge badge-stress">Stress</span></div>
+      <div class="q-text">How well do you feel you're currently coping with stress?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Not coping</span><span class="scale-end">Coping well</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 4: OVERTHINKING ─ -->
+    <div class="section-label s-think">
+      <div class="section-icon">🌀</div>
+      <div class="section-info"><h2>Overthinking</h2><p>Rumination, loops, and mental chatter</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q13" data-section="thinking">
+      <div class="q-meta"><span class="q-num">Q13</span><span class="q-badge badge-thinking">Overthinking</span></div>
+      <div class="q-text">How often do you replay past conversations or events in your mind, wishing things had gone differently?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Constantly</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q14" data-section="thinking">
+      <div class="q-meta"><span class="q-num">Q14</span><span class="q-badge badge-thinking">Overthinking</span></div>
+      <div class="q-text">Do you find it difficult to make decisions because you keep analysing all the possible outcomes?</div>
+      <div class="pills" data-type="pills" data-opts="No, I decide easily|Sometimes|Often|Almost always paralysed"></div>
+    </div>
+
+    <div class="q-card" data-q="q15" data-section="thinking">
+      <div class="q-meta"><span class="q-num">Q15</span><span class="q-badge badge-thinking">Overthinking</span></div>
+      <div class="q-text">When you're trying to sleep, how often do your thoughts keep running even when you want to rest?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Every night</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 5: LOW MOOD / DEPRESSION ─ -->
+    <div class="section-label s-depression">
+      <div class="section-icon">🌧️</div>
+      <div class="section-info"><h2>Low mood</h2><p>Persistent sadness and emptiness</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q16" data-section="depression">
+      <div class="q-meta"><span class="q-num">Q16</span><span class="q-badge badge-depression">Low mood</span></div>
+      <div class="q-text">How often have you felt persistently sad, empty, or hopeless over the past two weeks?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Not at all</span><span class="scale-end">Nearly every day</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q17" data-section="depression">
+      <div class="q-meta"><span class="q-num">Q17</span><span class="q-badge badge-depression">Low mood</span></div>
+      <div class="q-text">Has your appetite or sleep changed noticeably — eating much more or less, sleeping much more or less?</div>
+      <div class="pills" data-type="pills" data-opts="No change|Slight change|Noticeable change|Significant change"></div>
+    </div>
+
+    <div class="q-card" data-q="q18" data-section="depression">
+      <div class="q-meta"><span class="q-num">Q18</span><span class="q-badge badge-depression">Low mood</span></div>
+      <div class="q-text">How often do you have thoughts like "nothing matters" or "what's the point"?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Never</span><span class="scale-end">Very frequently</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q19" data-section="depression">
+      <div class="q-meta"><span class="q-num">Q19</span><span class="q-badge badge-depression">Low mood</span></div>
+      <div class="q-text">Do you feel like you're carrying a heavy weight that others around you don't seem to have?</div>
+      <div class="pills" data-type="pills" data-opts="Not really|Occasionally|Often|It feels overwhelming"></div>
+    </div>
+
+    <!-- ─ SECTION 6: LONELINESS ─ -->
+    <div class="section-label s-lonely">
+      <div class="section-icon">🕊️</div>
+      <div class="section-info"><h2>Loneliness & connection</h2><p>Feeling seen, heard, and belonging</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q20" data-section="loneliness">
+      <div class="q-meta"><span class="q-num">Q20</span><span class="q-badge badge-loneliness">Loneliness</span></div>
+      <div class="q-text">How often do you feel genuinely lonely — even when people are around you?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Very often</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q21" data-section="loneliness">
+      <div class="q-meta"><span class="q-num">Q21</span><span class="q-badge badge-loneliness">Loneliness</span></div>
+      <div class="q-text">Is there at least one person in your life with whom you feel completely comfortable being yourself?</div>
+      <div class="pills" data-type="pills" data-opts="Yes, a few people|Yes, one person|Not really|No one"></div>
+    </div>
+
+    <div class="q-card" data-q="q22" data-section="loneliness">
+      <div class="q-meta"><span class="q-num">Q22</span><span class="q-badge badge-loneliness">Loneliness</span></div>
+      <div class="q-text">How often do you hold back your real thoughts or feelings out of fear of being judged or rejected?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Almost always</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 7: APPROVAL-SEEKING ─ -->
+    <div class="section-label s-approval">
+      <div class="section-icon">🪞</div>
+      <div class="section-info"><h2>Seeking approval</h2><p>Validation, people-pleasing, self-worth</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q23" data-section="approval">
+      <div class="q-meta"><span class="q-num">Q23</span><span class="q-badge badge-approval">Approval</span></div>
+      <div class="q-text">How much do you rely on others' opinions to feel good about yourself?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Not at all</span><span class="scale-end">Completely dependent</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q24" data-section="approval">
+      <div class="q-meta"><span class="q-num">Q24</span><span class="q-badge badge-approval">Approval</span></div>
+      <div class="q-text">Do you find yourself saying yes to things you don't want to do, just to avoid disappointing others?</div>
+      <div class="pills" data-type="pills" data-opts="Rarely|Sometimes|Often|Almost always"></div>
+    </div>
+
+    <div class="q-card" data-q="q25" data-section="approval">
+      <div class="q-meta"><span class="q-num">Q25</span><span class="q-badge badge-approval">Approval</span></div>
+      <div class="q-text">When someone criticises you — even gently — how long does it stay with you?</div>
+      <div class="pills" data-type="pills" data-opts="Moves on quickly|A few hours|Days|A very long time"></div>
+    </div>
+
+    <div class="q-card" data-q="q26" data-section="approval">
+      <div class="q-meta"><span class="q-num">Q26</span><span class="q-badge badge-approval">Approval</span></div>
+      <div class="q-text">How often do you change your behaviour or opinions based on what you think others want to see?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Rarely</span><span class="scale-end">Very often</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 8: SELF & CAREER CLARITY ─ -->
+    <div class="section-label s-clarity">
+      <div class="section-icon">🧭</div>
+      <div class="section-info"><h2>Self & career clarity</h2><p>Direction, identity, and purpose</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q27" data-section="clarity">
+      <div class="q-meta"><span class="q-num">Q27</span><span class="q-badge badge-clarity">Clarity</span></div>
+      <div class="q-text">How clearly do you know what you want from life — your values, goals, and the kind of person you want to be?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">No idea</span><span class="scale-end">Very clear</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q28" data-section="clarity">
+      <div class="q-meta"><span class="q-num">Q28</span><span class="q-badge badge-clarity">Clarity</span></div>
+      <div class="q-text">Are you pursuing your current academic path because you genuinely want to, or because of external pressure?</div>
+      <div class="pills" data-type="pills" data-opts="Genuinely my choice|Mostly my choice|Mostly external pressure|Entirely external pressure|I'm not sure"></div>
+    </div>
+
+    <div class="q-card" data-q="q29" data-section="clarity">
+      <div class="q-meta"><span class="q-num">Q29</span><span class="q-badge badge-clarity">Clarity</span></div>
+      <div class="q-text">How confident do you feel about your career direction or future path?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Completely lost</span><span class="scale-end">Very confident</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q30" data-section="clarity">
+      <div class="q-meta"><span class="q-num">Q30</span><span class="q-badge badge-clarity">Clarity</span></div>
+      <div class="q-text">How often do you feel like you're living by your own definition of success, not someone else's?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Never</span><span class="scale-end">Almost always</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q31" data-section="clarity">
+      <div class="q-meta"><span class="q-num">Q31</span><span class="q-badge badge-clarity">Clarity</span></div>
+      <div class="q-text">What is your biggest obstacle to knowing yourself better? (optional — write freely)</div>
+      <textarea class="open-input" placeholder="Type anything that comes to mind..."></textarea>
+    </div>
+
+    <!-- ─ SECTION 9: MEDITATION ─ -->
+    <div class="section-label s-meditate">
+      <div class="section-icon">🌿</div>
+      <div class="section-info"><h2>Mindfulness & meditation</h2><p>Stillness, presence, and inner calm</p></div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="q-card" data-q="q32" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q32</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">Have you ever tried meditation, breathwork, or any formal mindfulness practice?</div>
+      <div class="pills" data-type="pills" data-opts="Never|Once or twice|A few times|I practice occasionally|I have a regular practice"></div>
+    </div>
+
+    <div class="q-card" data-q="q33" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q33</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">How easy is it for you to simply sit still for 5 minutes without reaching for your phone or filling the silence?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Almost impossible</span><span class="scale-end">Very easy</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q34" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q34</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">During daily activities — eating, walking, studying — how often are you fully present instead of lost in thought?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Almost never present</span><span class="scale-end">Usually present</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q35" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q35</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">When your mind wanders during a task, how quickly do you notice and gently bring it back?</div>
+      <div class="pills" data-type="pills" data-opts="I rarely notice|It takes a while|Fairly quickly|Almost immediately"></div>
+    </div>
+
+    <div class="q-card" data-q="q36" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q36</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">Do you have any form of daily pause — even just a few conscious breaths or a short walk in silence?</div>
+      <div class="pills" data-type="pills" data-opts="No, never|Rarely|A few times a week|Almost every day"></div>
+    </div>
+
+    <div class="q-card" data-q="q37" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q37</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">What has been your biggest barrier to starting or maintaining a meditation practice?</div>
+      <div class="pills" data-type="pills" data-multi="true" data-opts="Don't know how|No time|Feels boring|Mind won't stop|Don't believe it works|Never tried|Nothing, I already practice"></div>
+    </div>
+
+    <div class="q-card" data-q="q38" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q38</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">If you've meditated before, what effect did it have on you?</div>
+      <div class="pills" data-type="pills" data-opts="Felt calmer|Felt more focused|Fell asleep|Got bored|Nothing noticeable|Haven't tried yet"></div>
+    </div>
+
+    <div class="q-card" data-q="q39" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q39</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">How open are you to building a regular mindfulness or meditation habit going forward?</div>
+      <div class="scale-wrap">
+        <div class="scale-ends"><span class="scale-end">Not open at all</span><span class="scale-end">Very open</span></div>
+        <div class="scale-row" data-type="scale"></div>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="q40" data-section="meditation">
+      <div class="q-meta"><span class="q-num">Q40</span><span class="q-badge badge-meditation">Meditation</span></div>
+      <div class="q-text">In one or two sentences, what would you most like to feel more of in your daily life? (optional)</div>
+      <textarea class="open-input" placeholder="e.g. More peace, more direction, more confidence..."></textarea>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-area">
+      <p class="submit-note" id="submit-note">Answer all required questions to submit.</p>
+      <button type="button" class="submit-btn" id="submit-btn" disabled>
+        Submit
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </button>
+    </div>
+  </div>
+  </form>
+
+  <!-- ── Thank you ── -->
+  <div class="thank-you" id="thank-you-area">
+    <div class="thank-you-card">
+      <div class="thank-you-icon" aria-hidden="true">✓</div>
+      <h2>Thank you for your valuable feedback</h2>
+      <p>Your responses have been submitted successfully. We truly appreciate you taking the time to share with us.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Replace with your deployed Web App URL after setting up Google Apps Script (see google-apps-script/student-questionnaire.gs)
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2bfOWpvCFr3QtsYl-zUi2BFuR6GqSGiPeGkROIf3SXaxGl9v9IsWHcvuGwmrFI_GHWA/exec';
+
+const answers = {};
+let answered = 0;
+let isSubmitting = false;
+
+const SECTIONS = [
+  { id:'anxiety',    label:'Anxiety',          icon:'😰', qs:['q1','q2','q3','q4'] },
+  { id:'burnout',    label:'Burnout',           icon:'🔋', qs:['q5','q6','q7','q8'] },
+  { id:'stress',     label:'Stress',            icon:'⚡', qs:['q9','q10','q11','q12'] },
+  { id:'thinking',   label:'Overthinking',      icon:'🌀', qs:['q13','q14','q15'] },
+  { id:'depression', label:'Low mood',          icon:'🌧️', qs:['q16','q17','q18','q19'] },
+  { id:'loneliness', label:'Loneliness',        icon:'🕊️', qs:['q20','q21','q22'] },
+  { id:'approval',   label:'Approval-seeking',  icon:'🪞', qs:['q23','q24','q25','q26'] },
+  { id:'clarity',    label:'Self-clarity',      icon:'🧭', qs:['q27','q28','q29','q30'] },
+  { id:'meditation', label:'Mindfulness',       icon:'🌿', qs:['q32','q33','q34','q35','q36','q37','q38','q39'] },
+];
+
+const OPTIONAL = ['q31','q40'];
+const ALL_REQUIRED = [];
+SECTIONS.forEach(s => s.qs.forEach(q => ALL_REQUIRED.push(q)));
+
+// Scale values: 1–5 where higher = more of the thing
+const SCALE_DIR = {
+  // for anxiety/burnout/stress/depression/loneliness/approval, high = worse
+  q1:'neg',q3:'neg',q5:'neg',q7:'neg',q9:'neg',q12:'pos',
+  q13:'neg',q15:'neg',q16:'neg',q18:'neg',q20:'neg',q22:'neg',
+  q23:'neg',q26:'neg',q27:'pos',q29:'pos',q30:'pos',
+  q33:'pos',q34:'pos',q39:'pos',
+};
+
+// Pill option scoring weights (0–4)
+const PILL_SCORES = {
+  q2: { 'Rarely':0,'Sometimes':2,'Often':3,'Almost always':4 },
+  q4: { 'Push them away':3,'Distract myself':2,'Breathe and observe':0,'Talk to someone':1,'Let them spiral':4,'I don\'t know':2 },
+  q6: { 'Still find meaning':0,'Some interest left':1,'Mostly going through motions':3,'Completely empty':4 },
+  q8: { 'No, still enjoy them':0,'A little less':1,'Mostly lost interest':3,'Completely lost interest':4 },
+  q10:{ 'Rarely spills over':0,'Sometimes':2,'Often':3,'It takes over everything':4 },
+  q14:{ 'No, I decide easily':0,'Sometimes':1,'Often':3,'Almost always paralysed':4 },
+  q17:{ 'No change':0,'Slight change':1,'Noticeable change':3,'Significant change':4 },
+  q19:{ 'Not really':0,'Occasionally':2,'Often':3,'It feels overwhelming':4 },
+  q21:{ 'Yes, a few people':0,'Yes, one person':1,'Not really':3,'No one':4 },
+  q24:{ 'Rarely':0,'Sometimes':1,'Often':3,'Almost always':4 },
+  q25:{ 'Moves on quickly':0,'A few hours':1,'Days':3,'A very long time':4 },
+  q28:{ 'Genuinely my choice':0,'Mostly my choice':1,'Mostly external pressure':3,'Entirely external pressure':4,"I'm not sure":2 },
+  q32:{ 'Never':4,'Once or twice':3,'A few times':2,'I practice occasionally':1,'I have a regular practice':0 },
+  q35:{ 'I rarely notice':4,'It takes a while':3,'Fairly quickly':1,'Almost immediately':0 },
+  q36:{ 'No, never':4,'Rarely':3,'A few times a week':1,'Almost every day':0 },
+  q38:{ 'Felt calmer':0,'Felt more focused':0,'Fell asleep':2,'Got bored':3,'Nothing noticeable':2,"Haven't tried yet":2 },
+};
+
+function buildScaleRow(container, qId) {
+  for (let i = 1; i <= 5; i++) {
+    const btn = document.createElement('button');
+    btn.className = 's-btn'; btn.type = 'button';
+    btn.innerHTML = `<span class="s-dot"></span>${i}`;
+    btn.addEventListener('click', () => {
+      container.querySelectorAll('.s-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const card = container.closest('.q-card');
+      const wasAnswered = answers[qId] !== undefined;
+      answers[qId] = { type:'scale', val: i };
+      if (!wasAnswered) { answered++; updateProgress(); }
+      card.classList.add('answered');
+    });
+    container.appendChild(btn);
+  }
+}
+
+function buildPills(container, qId, opts, multi) {
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'pill'; btn.type = 'button';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => {
+      const card = container.closest('.q-card');
+      if (multi) {
+        btn.classList.toggle('active');
+        const selected = [...container.querySelectorAll('.pill.active')].map(b => b.textContent);
+        const wasAnswered = answers[qId] !== undefined && answers[qId].val.length > 0;
+        answers[qId] = { type:'multi', val: selected };
+        if (!wasAnswered && selected.length > 0) { answered++; updateProgress(); }
+        if (selected.length === 0) { delete answers[qId]; answered--; updateProgress(); }
+      } else {
+        container.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const wasAnswered = answers[qId] !== undefined;
+        answers[qId] = { type:'pill', val: opt };
+        if (!wasAnswered) { answered++; updateProgress(); }
+        card.classList.add('answered');
+      }
+    });
+    container.appendChild(btn);
+  });
+}
+
+function updateProgress() {
+  const total = ALL_REQUIRED.length;
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('prog-bar').style.width = pct + '%';
+  document.getElementById('prog-frac').textContent = `${answered} / ${total}`;
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = answered < total;
+  document.getElementById('submit-note').textContent = answered < total
+    ? `${total - answered} question${total - answered === 1 ? '' : 's'} remaining`
+    : 'All done! Ready to submit.';
+}
+
+function getScore(sectionId, qs) {
+  let total = 0, count = 0;
+  qs.forEach(qId => {
+    const a = answers[qId];
+    if (!a) return;
+    if (a.type === 'scale') {
+      const dir = SCALE_DIR[qId];
+      if (dir === 'neg') total += (a.val - 1); // 0–4, higher = worse
+      else if (dir === 'pos') total += (5 - a.val); // invert: higher scale = better = less problem
+      else total += (a.val - 1);
+      count++;
+    } else if (a.type === 'pill') {
+      const map = PILL_SCORES[qId];
+      if (map && map[a.val] !== undefined) { total += map[a.val]; count++; }
+    } else if (a.type === 'multi') {
+      // for multi, use average known score
+      const map = PILL_SCORES[qId];
+      if (map) {
+        let s = 0, c = 0;
+        a.val.forEach(v => { if (map[v] !== undefined) { s += map[v]; c++; } });
+        if (c) { total += s/c; count++; }
+      }
+    }
+  });
+  if (!count) return 0;
+  // normalize to 0–100, higher = more concern
+  return Math.round((total / (count * 4)) * 100);
+}
+
+function levelFor(score) {
+  if (score < 35) return 'low';
+  if (score < 65) return 'mid';
+  return 'high';
+}
+
+function levelLabel(level, section) {
+  const labels = {
+    anxiety:    { low:'Managing well', mid:'Moderate', high:'Needs attention' },
+    burnout:    { low:'Energised', mid:'Draining', high:'Burned out' },
+    stress:     { low:'Low stress', mid:'Moderate', high:'High stress' },
+    thinking:   { low:'Clear mind', mid:'Some rumination', high:'Heavy rumination' },
+    depression: { low:'Stable mood', mid:'Low periods', high:'Persistently low' },
+    loneliness: { low:'Connected', mid:'Somewhat isolated', high:'Very lonely' },
+    approval:   { low:'Self-grounded', mid:'Some reliance', high:'High reliance' },
+    clarity:    { low:'Good clarity', mid:'Some fog', high:'Unclear' },
+    meditation: { low:'Present', mid:'Developing', high:'Distracted' },
+  };
+  return (labels[section] && labels[section][level]) || level;
+}
+
+function formatAnswer(qId) {
+  const a = answers[qId];
+  if (!a) return '';
+  if (a.type === 'scale') return String(a.val);
+  if (a.type === 'multi') return a.val.join(', ');
+  if (a.type === 'pill') return a.val;
+  if (a.type === 'text') return a.val;
+  return '';
+}
+
+function collectAllAnswers() {
+  const out = {};
+  for (let i = 1; i <= 40; i++) {
+    const qId = 'q' + i;
+    out[qId] = formatAnswer(qId);
+  }
+  return out;
+}
+
+function collectSectionScores() {
+  const scores = {};
+  SECTIONS.forEach(s => {
+    const score = getScore(s.id, s.qs);
+    scores[s.id] = {
+      score,
+      level: levelFor(score),
+      label: levelLabel(levelFor(score), s.id)
+    };
+  });
+  return scores;
+}
+
+function validateStudentInfo() {
+  const nameEl = document.getElementById('student-name');
+  const emailEl = document.getElementById('student-email');
+  const phoneEl = document.getElementById('student-phone');
+  let valid = true;
+
+  nameEl.classList.remove('invalid');
+  emailEl.classList.remove('invalid');
+  phoneEl.classList.remove('invalid');
+
+  if (!nameEl.value.trim()) {
+    nameEl.classList.add('invalid');
+    valid = false;
+  }
+
+  const email = emailEl.value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    emailEl.classList.add('invalid');
+    valid = false;
+  }
+
+  const phone = phoneEl.value.trim();
+  if (phone && !/^\d{10}$/.test(phone)) {
+    phoneEl.classList.add('invalid');
+    valid = false;
+  }
+
+  if (!valid) {
+    document.getElementById('student-info').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  return valid;
+}
+
+function submitToGoogleSheets(payload) {
+  if (!GOOGLE_SCRIPT_URL) {
+    console.warn('GOOGLE_SCRIPT_URL is not set. Skipping Google Sheets submission.');
+    return Promise.resolve({ status: 'skipped' });
+  }
+
+  return fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => res.json())
+    .catch(err => {
+      console.error(err);
+      return { status: 'error' };
+    });
+}
+
+function showThankYou() {
+  document.getElementById('page-hero').style.display = 'none';
+  document.getElementById('questionnaire-form').style.display = 'none';
+  document.getElementById('thank-you-area').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('submit-btn').addEventListener('click', async () => {
+  if (isSubmitting) return;
+  if (!validateStudentInfo()) return;
+
+  const btn = document.getElementById('submit-btn');
+  isSubmitting = true;
+  btn.disabled = true;
+  const prevLabel = btn.innerHTML;
+  btn.innerHTML = 'Submitting…';
+
+  const payload = {
+    name: document.getElementById('student-name').value.trim(),
+    email: document.getElementById('student-email').value.trim(),
+    phone: document.getElementById('student-phone').value.trim(),
+    institution: document.getElementById('student-institution').value.trim(),
+    source: 'Student Well-being Questionnaire',
+    submittedAt: new Date().toISOString(),
+    answers: collectAllAnswers(),
+    scores: collectSectionScores()
+  };
+
+  const sheetResult = await submitToGoogleSheets(payload);
+
+  isSubmitting = false;
+  btn.innerHTML = prevLabel;
+  btn.disabled = answered < ALL_REQUIRED.length;
+
+  if (sheetResult.status === 'error') {
+    alert('We could not save your responses. Please check your connection and try again.');
+    return;
+  }
+
+  showThankYou();
+});
+
+// ── Initialize ──
+document.querySelectorAll('.q-card').forEach(card => {
+  const qId = card.dataset.q;
+  const isOptional = OPTIONAL.includes(qId);
+
+  const scaleEl = card.querySelector('[data-type="scale"]');
+  const pillsEl = card.querySelector('[data-type="pills"]');
+  const textareaEl = card.querySelector('.open-input');
+
+  if (scaleEl) buildScaleRow(scaleEl, qId);
+  if (pillsEl) {
+    const multi = pillsEl.dataset.multi === 'true';
+    const optsAttr = pillsEl.dataset.opts;
+    const opts = optsAttr ? optsAttr.split('|') : ['Rarely','Sometimes','Often','Almost always'];
+    buildPills(pillsEl, qId, opts, multi);
+  }
+  if (textareaEl) {
+    textareaEl.addEventListener('input', () => {
+      const val = textareaEl.value.trim();
+      if (val) {
+        answers[qId] = { type: 'text', val };
+        card.classList.add('answered');
+      } else {
+        delete answers[qId];
+        card.classList.remove('answered');
+      }
+    });
+  }
+
+  if (isOptional) return;
+});
+
+updateProgress();
+</script>
+</body>
+</html>
