@@ -9,8 +9,29 @@ body a{
     text-decoration: none;
 }
 
-.navbar {
-    background-color: #aed4dd !important;
+.navbar{
+    background:#aed4dd !important;
+    padding:15px 50px;
+}
+@media(max-width:768px){
+
+.navbar{
+    padding:10px 16px;
+}
+
+}
+
+.logo{
+    height:55px;
+    width:auto;
+}
+
+@media(max-width:768px){
+
+.logo{
+    height:40px;
+}
+
 }
 
 .navbar-brand {
