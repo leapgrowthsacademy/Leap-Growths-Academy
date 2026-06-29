@@ -26,6 +26,16 @@ body a{
     width:auto;
 }
 
+.navbar-collapse{
+    position: relative;
+    z-index: 9999;
+}
+
+.navbar{
+    position: relative;
+    z-index: 9999;
+}
+
 @media(max-width:768px){
 
 .logo{
