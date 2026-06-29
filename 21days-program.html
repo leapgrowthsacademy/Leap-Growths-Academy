@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21-Day Emotional Mastery Program — Nikhil | Leap Growths</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal-50:#e0f7f4;
+  --teal-200:#80dfcf;
+  --teal-400:#1db89a;
+  --teal-500:#00897b;
+  --teal-600:#00695c;
+  --teal-700:#004d40;
+  --navy:#0a1628;
+  --navy2:#071520;
+  --gold:#f5a623;
+  --white:#ffffff;
+  --text-light:#cce8e4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;overflow-x:hidden}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#0a1628 0%,#0d2235 45%,#0a2e28 100%);
+  overflow:hidden;
+  padding:70px 5% 0;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 80% at 65% 50%,rgba(0,137,123,0.13) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:40px;align-items:flex-end;
+  position:relative;z-index:1;
+}
+.hero-text{padding-bottom:60px;}
+.hero-badge{
+  display:inline-block;
+  background:var(--gold);color:#1a0a00;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:18px;
+}
+.hero-program{
+  font-size:17px;color:var(--teal-200);font-weight:600;margin-bottom:10px;letter-spacing:0.5px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4.5vw,54px);font-weight:800;
+  line-height:1.1;margin-bottom:14px;color:var(--white);
+}
+.hero h1 span{color:var(--teal-400);}
+.hero-desc{
+  font-size:15.5px;color:var(--text-light);opacity:0.85;
+  max-width:500px;margin-bottom:28px;
+}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;}
+.hero-meta-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:13.5px;color:var(--teal-200);font-weight:500;
+}
+.hero-meta-item .dot{width:7px;height:7px;border-radius:50%;background:var(--teal-400);flex-shrink:0;}
+.cta-btn{
+  display:inline-block;background:var(--teal-400);color:var(--navy);
+  font-size:15px;font-weight:700;padding:14px 34px;
+  border-radius:50px;text-decoration:none;transition:background 0.2s,transform 0.1s;
+}
+.cta-btn:hover{background:var(--teal-200);transform:translateY(-2px);}
+
+/* Photo col — sits at bottom of hero */
+.hero-photo-col{
+  position:relative;display:flex;align-items:flex-end;justify-content:center;
+}
+.hero-photo-glow{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,137,123,0.22) 0%,rgba(0,137,123,0.04) 70%);
+}
+.hero-photo{
+  position:relative;z-index:1;
+  width:100%;
+  top: -50px;
+  height:auto;border-radius:12px;
+  display:block;
+}
+
+/* STATS STRIP — sits right below hero, above gains */
+.stats-strip{
+  background:rgba(0,137,123,0.1);
+  border-top:1px solid rgba(0,137,123,0.25);
+  border-bottom:1px solid rgba(0,137,123,0.25);
+  padding:22px 5%;
+}
+.stats-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.stats-label{
+  font-size:20px;font-weight:800;color:var(--white);
+  font-family:'Playfair Display',serif;
+  flex:1;min-width:200px;
+}
+.stats-label span{color:var(--teal-400);}
+.stat-pill{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(13,31,56,0.85);
+  border:1px solid rgba(0,137,123,0.4);
+  border-radius:14px;padding:12px 18px;
+  flex-shrink:0;
+}
+.stat-icon{font-size:22px;}
+.stat-text strong{display:block;font-size:18px;font-weight:800;color:var(--white);line-height:1;}
+.stat-text span{font-size:12px;color:var(--teal-200);font-weight:500;}
+
+/* SECTION COMMON */
+section{padding:72px 5%;}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-400);font-weight:700;margin-bottom:10px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.8vw,40px);font-weight:800;color:var(--white);margin-bottom:10px;line-height:1.2;}
+.section-title span{color:var(--teal-400);}
+.section-sub{font-size:15.5px;color:var(--text-light);opacity:0.8;max-width:560px;margin-bottom:44px;}
+.center{text-align:center;}
+.center .section-sub{margin-left:auto;margin-right:auto;}
+
+/* GAINS GRID */
+.gains-section{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);}
+.gains-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(296px,1fr));
+  gap:18px;max-width:1100px;margin:0 auto;
+}
+.gain-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(0,137,123,0.2);
+  border-radius:16px;padding:22px;
+  transition:border-color 0.2s,background 0.2s,transform 0.15s;
+  position:relative;overflow:hidden;
+}
+.gain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal-500),transparent);opacity:0;transition:opacity 0.2s;}
+.gain-card:hover{border-color:rgba(0,137,123,0.55);background:rgba(0,137,123,0.06);transform:translateY(-3px);}
+.gain-card:hover::before{opacity:1;}
+.gain-emoji{font-size:26px;margin-bottom:10px;display:block;}
+.gain-title{font-size:14.5px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.gain-desc{font-size:13px;color:var(--text-light);opacity:0.8;line-height:1.6;}
+
+/* WHO IS THIS FOR */
+.for-section{background:var(--navy2);}
+.for-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;max-width:900px;margin:0 auto;}
+.for-item{
+  background:rgba(0,137,123,0.08);border:1px solid rgba(0,137,123,0.25);
+  border-radius:12px;padding:16px 18px;
+  display:flex;align-items:center;gap:12px;
+  font-size:13.5px;color:var(--text-light);font-weight:500;
+}
+.for-check{width:22px;height:22px;border-radius:50%;background:var(--teal-600);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;}
+
+/* TIMELINE */
+.timeline-section{background:linear-gradient(180deg,var(--navy2) 0%,var(--navy) 100%);}
+.timeline{max-width:760px;margin:0 auto;position:relative;}
+.timeline::before{content:'';position:absolute;left:27px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--teal-500),transparent);}
+.t-item{display:flex;gap:22px;margin-bottom:30px;position:relative;}
+.t-dot{width:54px;height:54px;border-radius:50%;flex-shrink:0;background:var(--teal-700);border:2px solid var(--teal-500);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--teal-200);position:relative;z-index:1;}
+.t-body{padding-top:10px;}
+.t-week{font-size:11px;letter-spacing:2px;color:var(--teal-400);font-weight:700;text-transform:uppercase;margin-bottom:3px;}
+.t-title{font-size:15.5px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.t-desc{font-size:13px;color:var(--text-light);opacity:0.8;}
+
+/* CTA BOTTOM */
+.cta-section{background:linear-gradient(135deg,var(--teal-700) 0%,var(--teal-600) 50%,#004d40 100%);text-align:center;padding:72px 5%;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 50% 50%,rgba(255,255,255,0.05) 0%,transparent 70%);}
+.cta-section *{position:relative;z-index:1;}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.8vw,42px);font-weight:800;color:var(--white);margin-bottom:12px;}
+.cta-section p{font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:34px;max-width:500px;margin-left:auto;margin-right:auto;}
+.cta-btn-light{display:inline-block;background:var(--white);color:var(--teal-700);font-size:16px;font-weight:800;padding:15px 40px;border-radius:50px;text-decoration:none;transition:background 0.2s,transform 0.1s;}
+.cta-btn-light:hover{background:var(--teal-50);transform:translateY(-2px);}
+
+footer{background:var(--navy);border-top:1px solid rgba(0,137,123,0.15);padding:26px 5%;text-align:center;font-size:13px;color:rgba(255,255,255,0.4);}
+footer span{color:var(--teal-400);}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:0;}
+  .hero-photo-col{order:-1;}
+  .hero-photo{max-width:260px;margin:0 auto;}
+  .hero-text{padding-bottom:40px;}
+  .stats-inner{flex-direction:column;align-items:flex-start;gap:14px;}
+  .gains-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">21-Day Live Program</div>
+      <div class="hero-program">Feel It. Free It. Master It.</div>
+      <h1>Transform Your <span>Emotional Life</span> in 21 Days</h1>
+      <p class="hero-desc">A complete emotional intelligence journey — designed to help you understand, process, and master your emotions for lasting transformation.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span class="dot"></span>21 Daily Live Sessions</div>
+        <div class="hero-meta-item"><span class="dot"></span>Guided Exercises</div>
+        <div class="hero-meta-item"><span class="dot"></span>Completion Certificate</div>
+        <div class="hero-meta-item"><span class="dot"></span>Live Q&amp;A Support</div>
+      </div>
+      <a href="#gains" class="cta-btn">See What You'll Gain ↓</a>
+    </div>
+    <div class="hero-photo-col">
+      <div class="hero-photo-glow"></div>
+      <img class="hero-photo" src="assets/images/Nikhil 21days Program Image.jpeg" alt="Nikhil - 21-Day Emotional Mastery Program">
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP with section heading -->
+<div class="stats-strip" id="gains">
+  <div class="stats-inner">
+    <div class="stats-label">What Will You Gain In <span>These 21 Days?</span></div>
+    <div class="stat-pill">
+      <span class="stat-icon">🧠</span>
+      <div class="stat-text">
+        <strong>17</strong>
+        <span>Outcomes</span>
+      </div>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-icon">📅</span>
+      <div class="stat-text">
+        <strong>21 Days</strong>
+        <span>Live Program</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAINS GRID -->
+<section class="gains-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="gains-grid">
+
+      <div class="gain-card">
+        <span class="gain-emoji">🔍</span>
+        <div class="gain-title">Deep Emotional Self-Awareness</div>
+        <div class="gain-desc">Discover the hidden emotional patterns that silently influence your thoughts, decisions, relationships, and life.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">😨</span>
+        <div class="gain-title">Freedom from Fear</div>
+        <div class="gain-desc">Learn how to identify, understand, and move through fears instead of allowing them to control your choices.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">💔</span>
+        <div class="gain-title">Healing Emotional Wounds</div>
+        <div class="gain-desc">Understand the message behind emotional hurt and learn healthy ways to process and release it.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🌟</span>
+        <div class="gain-title">Release Guilt &amp; Self-Blame</div>
+        <div class="gain-desc">Break free from unnecessary guilt and develop self-compassion and emotional clarity.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">💪</span>
+        <div class="gain-title">Build Inner Trust &amp; Confidence</div>
+        <div class="gain-desc">Transform self-doubt into self-belief through practical exercises and guided self-reflection.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🤝</span>
+        <div class="gain-title">Overcome Loneliness &amp; Isolation</div>
+        <div class="gain-desc">Develop a healthier connection with yourself and others, ending emotional isolation.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🎯</span>
+        <div class="gain-title">Handle Disappointment with Resilience</div>
+        <div class="gain-desc">Learn how to bounce back from setbacks without losing motivation or hope.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">⚡</span>
+        <div class="gain-title">Manage Stress &amp; Emotional Overload</div>
+        <div class="gain-desc">Gain practical techniques to calm your mind and regain emotional balance.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🔥</span>
+        <div class="gain-title">Understand &amp; Express Anger Effectively</div>
+        <div class="gain-desc">Learn how to express anger constructively without harming yourself or your relationships.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🧠</span>
+        <div class="gain-title">Understand the Mind-Emotion Connection</div>
+        <div class="gain-desc">Discover how emotions influence your thoughts, behaviors, habits, and physical well-being.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🔄</span>
+        <div class="gain-title">Break Negative Emotional Patterns</div>
+        <div class="gain-desc">Identify recurring emotional cycles and learn how to rewrite them consciously.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🛠</span>
+        <div class="gain-title">Create Your Personal Emotional Toolkit</div>
+        <div class="gain-desc">Build a customized set of tools and practices that you can use for life.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">🧘</span>
+        <div class="gain-title">Daily Guided Emotional Awareness Practice</div>
+        <div class="gain-desc">Learn a simple meditation technique to help you observe and regulate your emotions effectively.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">❤️</span>
+        <div class="gain-title">Improve Relationships</div>
+        <div class="gain-desc">Understand emotional triggers, relationship mirrors, and healthier ways of responding to others.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">📈</span>
+        <div class="gain-title">Measure Your Emotional Growth</div>
+        <div class="gain-desc">Track your progress from Day 1 to Day 21 and witness your personal transformation.</div>
+      </div>
+
+      <div class="gain-card">
+        <span class="gain-emoji">👥</span>
+        <div class="gain-title">Live Interaction &amp; Personalized Support</div>
+        <div class="gain-desc">Get your questions answered through live Q&amp;A sessions and weekly support circles.</div>
+      </div>
+
+      <div class="gain-card" style="border-color:rgba(245,166,35,0.45);background:rgba(245,166,35,0.05);">
+        <span class="gain-emoji">🎓</span>
+        <div class="gain-title" style="color:var(--gold);">Completion Certificate</div>
+        <div class="gain-desc">Receive a certificate recognizing your commitment to emotional growth and self-development.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section class="for-section">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="center">
+      <div class="section-label">Is This For You?</div>
+      <h2 class="section-title">This Program Is For You If You…</h2>
+      <p class="section-sub" style="margin:0 auto 38px;">You don't need to be broken to want to be better.</p>
+    </div>
+    <div class="for-grid">
+      <div class="for-item"><div class="for-check">✓</div>Feel stuck in the same emotional patterns</div>
+      <div class="for-item"><div class="for-check">✓</div>React in ways you later regret</div>
+      <div class="for-item"><div class="for-check">✓</div>Struggle with self-doubt and fear</div>
+      <div class="for-item"><div class="for-check">✓</div>Want deeper, healthier relationships</div>
+      <div class="for-item"><div class="for-check">✓</div>Feel emotionally overwhelmed or drained</div>
+      <div class="for-item"><div class="for-check">✓</div>Want to understand yourself better</div>
+      <div class="for-item"><div class="for-check">✓</div>Feel guilt or shame holding you back</div>
+      <div class="for-item"><div class="for-check">✓</div>Ready to take charge of your inner world</div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<section class="timeline-section">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="center">
+      <div class="section-label">Your 21-Day Journey</div>
+      <h2 class="section-title">Week by Week <span>Transformation</span></h2>
+      <p class="section-sub" style="margin:0 auto 44px;">Each week builds on the last — structured for real, lasting change.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot">W1</div>
+        <div class="t-body">
+          <div class="t-week">Week 1 · Days 1–7</div>
+          <div class="t-title">Awareness — Know Your Emotional World</div>
+          <div class="t-desc">Understand your core emotions, where they live in your body, and the patterns that have been running your life without your knowledge.</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot">W2</div>
+        <div class="t-body">
+          <div class="t-week">Week 2 · Days 8–14</div>
+          <div class="t-title">Processing — Move Through What's Held You Back</div>
+          <div class="t-desc">Learn to process fear, grief, anger, and guilt at their root — not just manage the symptoms. Practical tools for daily emotional regulation.</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot">W3</div>
+        <div class="t-body">
+          <div class="t-week">Week 3 · Days 15–21</div>
+          <div class="t-title">Mastery — Rewrite Your Script for Life</div>
+          <div class="t-desc">Break old patterns and build your personal emotional toolkit. Track your transformation and walk away with practices you'll use for life.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label" style="color:rgba(255,255,255,0.7);margin-bottom:16px;">Limited Spots · Webinar July 12</div>
+  <h2>Don't Let This Be Another Webinar<br>You Attended and Forgot.</h2>
+  <p>If you're here, something in you knows it's time. These 21 days could be the turning point.</p>
+  <a href="https://wa.me/919703318999" class="cta-btn-light">Enquire About the Program</a>
+</section>
+
+<footer>
+  <p>© 2026 <span>Leap Growths Academy</span> · Nikhil · Emotional Intelligence Program</p>
+</footer>
+
+</body>
+</html>

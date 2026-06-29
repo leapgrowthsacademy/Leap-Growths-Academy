@@ -708,11 +708,22 @@ section { padding: 96px 40px; }
   flex-shrink: 0;
 }
 .testi-dot {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal), var(--teal-deep));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ffffff; /* Optional */
 }
+
+.testi-dot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .testi-name { font-size: 13px; font-weight: 700; color: var(--ink); }
 .testi-role { font-size: 11px; color: var(--ink-pale); }
 .testi-note {

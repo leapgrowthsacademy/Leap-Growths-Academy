@@ -18,9 +18,6 @@ body a{
     font-weight: bold;
 }
 
-.navbar img {
-    margin-left: 20%;
-}
 
 .navbar-nav {
     margin-left: auto;
@@ -51,11 +48,35 @@ body a{
 }
 
 .nav-item {
-    padding-right: 15px;
+    padding: 0;
 }
 
-#navbarNavDropdown {
-    padding-right: 10%;
+.navbar {
+    background-color: #aed4dd !important;
+    padding: 15px 50px;
+}
+
+.container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+    gap: 25px;
+    align-items: center;
+}
+.btn-white {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.btn-white:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
 }
 
 .navbar-nav .nav-link {
